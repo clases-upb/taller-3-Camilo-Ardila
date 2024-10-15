@@ -7,7 +7,26 @@ public class App {
 
    public static void main(String[] args) {
    
+      try {
 
+         System.out.println(Escribir_asc(5, 8, 3));
+
+         System.out.println(Obtener_cifras(545));
+
+         System.out.println(Clasificar_char((char)'Z'));
+
+         System.out.println(Hallar_division_exacta(10, 3));
+
+         System.out.println(Consultar_hab((byte)3, "AA"));
+
+         System.out.println(Obtener_obs(false, false, false));
+
+         System.out.println(Conocer_invitacion("blanco"));
+      } 
+      
+      catch (Exception e) {
+         // TODO: handle exception
+      }
    }
 
    /*
@@ -22,7 +41,60 @@ public class App {
     * el mensaje: "Ocurrió un error inesperado".
     */
 
+   public static String Escribir_asc(int n1, int n2, int n3){
 
+      try {
+
+         String mensaje = "";
+         String mensaje_iguales = "Error: La función no considera números iguales";
+         String mensaje_error = "Ocurrió un error inesperado";
+
+         if(n1 == n2 || n1 == n3 || n2 == n3 ){
+            return mensaje_iguales;
+         }
+
+         else if(n1 > n2 && n2 > n3){
+            mensaje = n1 + " - " + n2 + " - " + n3;
+            return mensaje;
+         }
+
+         else if(n1 > n3 && n3 > n2){
+            mensaje = n1 + " - " + n3 + " - " + n2;
+            return mensaje;
+         }
+
+         else if(n2 > n1 && n1 > n3){
+            mensaje = n2 + " - " + n1 + " - " + n3;
+            return mensaje;
+         }
+
+         else if(n2 > n3 && n3 > n1){
+            mensaje = n2 + " - " + n3 + " - " + n1;
+            return mensaje;
+         }
+
+         else if(n3 > n2 && n2 > n1){
+            mensaje = n3 + " - " + n2 + " - " + n1;
+            return mensaje;
+         }
+
+         else if(n3 > n1 && n1 > n2){
+            mensaje = n3 + " - " + n1 + " - " + n2;
+            return mensaje;
+         }
+
+         else{
+            return mensaje_error;
+         }
+
+      } 
+      
+      catch (Exception e) {
+         // TODO: handle exception
+         String mensaje_error = "Ocurrió un error inesperado";
+         return mensaje_error;
+      }
+   }
 
    /*
     * 2. Construya un algoritmo e implemente la función en Java Obtener_cifras que
@@ -33,7 +105,36 @@ public class App {
     * 
     */
 
+   public static byte Obtener_cifras(int numero){
 
+      try {
+
+         byte cifras = 0;
+         String conteo = "";
+
+         final int lim_inf = 0;
+         final int lim_sup = 50000;
+         
+
+         if (numero >= lim_inf && numero <= lim_sup) {
+            
+            conteo = Integer.toString(numero);
+
+            cifras = (byte) conteo.length();
+
+            return cifras;
+         }
+
+         else{
+            return 0;
+         }
+      }
+      
+      catch (Exception e) {
+         // TODO: handle exception
+         return -1;
+      }
+   }
 
    /*
     * 3. Construya un algoritmo e implemente la función en Java Clasificar_char que
@@ -49,7 +150,53 @@ public class App {
     * 
     */
 
+   public static String Clasificar_char(char caracter){
 
+      try {
+
+         int valorascii = (int) caracter;
+
+         String mensaje = "";
+         String mensaje_error = "Ocurrió un error inesperado";
+
+         final int
+
+         inf_n = 48, sup_n = 57, inf_l = 65, sup_l = 90, inf_l2 = 97, sup_l2 = 122, inf_a = 0, sup_a = 255;
+
+         if(valorascii >= inf_a && valorascii <= sup_a){
+
+            if ((valorascii >= inf_l && valorascii <= sup_l) || (valorascii >= inf_l2 && valorascii <= sup_l2)){
+
+               mensaje = "ES LETRA";
+
+               return mensaje;
+            }
+
+            else if(valorascii >= inf_n && valorascii <= sup_n){
+
+               mensaje = "ES NUMERO";
+
+               return mensaje;
+            }
+
+            else{
+               mensaje = "ESPECIAL";
+
+               return mensaje;
+            }
+         }
+
+         else{
+            return mensaje_error;
+         }
+      } 
+      
+      catch (Exception e) {
+         // TODO: handle exception
+         String mensaje_error = "Ocurrió un error inesperado";
+         return mensaje_error;
+      }
+   }
 
    /*
     * 
@@ -70,7 +217,48 @@ public class App {
     * 
     */
 
-   
+   public static String Hallar_division_exacta(int n1, int n2){
+
+      try {
+         
+         int modulo = 0;
+      
+         final int constante = 0;
+
+         String mensaje = "";
+         String error_cociente = "NO SE ADMITE CERO O NEGATIVOS";
+
+         if(n1 > constante && n2 > constante){
+
+            modulo = n1 % n2;
+
+            if(modulo == constante){
+
+               mensaje = "DIVISION EXACTA";
+
+               return mensaje;
+            }
+
+            else{
+
+               mensaje = "DIVISION NO EXACTA";
+
+               return mensaje;
+            }
+
+         }
+
+         else{
+            return error_cociente;
+         }
+      } 
+      
+      catch (Exception e) {
+         // TODO: handle exception
+         String mensaje_error = "Ocurrió un error inesperado";
+         return mensaje_error;
+      }
+   }
 
    /*
     * 5. En la siguiente tabla se encuentra la información de las habitaciones de
@@ -97,7 +285,67 @@ public class App {
     * "Ocurrió un error inesperado".
     */
 
+   public static String Consultar_hab(byte numero_camas, String tipo){
 
+      try {
+
+         String habitaciones = "";
+         String error = "DATOS NO VÁLIDOS";
+
+         final int camas1 = 1;
+         final int camas2 = 2;
+         final int camas3 = 3;
+
+         final String aa = "AA";
+         final String ve = "VE";
+
+         if(numero_camas >= 1 && numero_camas <= 3){
+
+            if (tipo == aa || tipo == ve){
+               
+               if(numero_camas == camas2 && tipo == aa){
+                  habitaciones = "101|301";
+                  return habitaciones;
+               }
+
+               else if(numero_camas == camas1 && tipo == ve){
+                  habitaciones = "102";
+                  return habitaciones;
+               }
+
+               else if(numero_camas == camas3 && tipo == aa){
+                  habitaciones = "201";
+                  return habitaciones;
+               }
+
+               else if(numero_camas == camas2 && tipo == ve){
+                  habitaciones = "202";
+                  return habitaciones;
+               }
+
+               else {
+                  return error;
+               }
+
+            }
+
+            else{
+               return error;
+            }
+
+         }
+
+         else{
+            return error;
+         }
+   }
+
+      catch (Exception e) {
+         // TODO: handle exception
+         String inesperado = "Ocurrió un error inesperado";
+         return inesperado;
+      }
+   }
    
    /*
     * 
@@ -114,11 +362,43 @@ public class App {
     * "Ocurrió un error inesperado".
     */
 
+   public static String Obtener_obs(boolean plato1, boolean plato2, boolean plato3){
 
+      try {
+         
+         String obsequio = "";
+         String falsos = "PLATOS NO VÁLIDOS";
 
+         if(plato1 == false && plato2 == false && plato3 == false){
+            return falsos;
+         }
 
+         else if(plato1 == true && plato2 == false & plato3 == false){
+            obsequio = "POSTRE";
+            return obsequio;
+         }
 
+         else if(plato1 == true && plato2 == true & plato3 == false){
+            obsequio = "BEBIDA";
+            return obsequio;
+         }
 
+         else if(plato1 == true && plato2 == true & plato3 == true){
+            obsequio = "BEBIDA Y POSTRE";
+            return obsequio;
+         }
+
+         else{
+            return obsequio;
+         }
+      } 
+      
+      catch (Exception e) {
+         // TODO: handle exception
+         String inesperado = "Ocurrió un  error inesperado";
+         return inesperado;
+      }
+   }
 
    /*
     * 7. Un grupo de amigos hace un sorteo semanalmente con pelotas de ping pong,
@@ -142,3 +422,39 @@ public class App {
     * 
     */
 
+    public static String Conocer_invitacion(String color){
+
+      try{
+
+         String invitacion = "";
+
+         switch (color) {
+
+            case "verde": invitacion = "Invita a las cervezas";
+               break;
+            case "azul": invitacion = "Invita a la pizza";
+               break;
+            case "rojo": invitacion = "Invita al postre";
+               break;
+            case "amarillo": invitacion = "Paga el parqueadero de todos";
+               break;
+            case "blanco": invitacion = "Vaya y disfrute";  
+               break;
+            case "negro": invitacion = "Vaya y disfrute";  
+               break;
+            default: invitacion = "Error en el color";
+               break;
+
+         }
+
+         return invitacion;
+      } 
+      
+      catch (Exception e) {
+         // TODO: handle exception
+         String inesperado = "Ocurrió un error inesperado";
+         return inesperado;
+      }
+    }
+
+}
